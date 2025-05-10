@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos Com DOM</title>
+    <style>
+        body {
+            background-color: rgb(62, 104, 167);
+            color: white;
+            font: normal 1em arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Começando estudos com DOM</h1>
+    <p>Aqui vai o Resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div class="msg">Clique em mim</div>
+
+    <script>
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByName('p')[1]
+
+        /*
+        var d = window.document.getElementById('msg')
+        d.style.backgroundColor = 'green'
+        d.innerText = 'aguardando...'
+        */
+
+        var d = window.document.querySelector('div.msg')
+        d.style.background = 'blue'
+        d.style.textAlign = 'center'
+        d.style.width = '500px'
+        d.innerText = 'aguardando...'
+    </script>
+</body>
+</html>
