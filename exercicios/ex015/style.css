@@ -32,7 +32,25 @@ section {
 
 section div{
     padding: 20px;
+    text-align: justify;
+}
+
+div#resultado{
     text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+img#imagem {
+    display: block;
+    width: 250px;
+    height: 250px;
+
+    margin: auto;
+
+    border-radius: 50%;
 }
 
 footer { 
