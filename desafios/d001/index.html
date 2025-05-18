@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Países</title>
+</head>
+<body>
+    <h1>Desafio das Países</h1>
+
+    <p>Pais: <input type="text" id="país" name="país"> <input type="button" value="Enviar" onclick="resultado()"></p>
+    <div id="resultado"></div>
+    <script>
+        function resultado(){
+            let resultado = document.querySelector('div#resultado')
+            let país = document.querySelector('input#país')
+
+            if( país.value == 'Brasil'){
+                resultado.innerHTML = 'Brasileiro!'
+            }else{
+                resultado.innerHTML = 'Estrangeiro!'
+            }
+        }
+    </script>
+</body>
+</html>
