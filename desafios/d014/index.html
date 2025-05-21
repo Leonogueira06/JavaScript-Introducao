@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do Aluno</title>
+</head>
+<body>
+    <h1>Situação do Aluno</h1>
+    <button onclick="notas()">Entrar com as notas</button> 
+    <div class="resultado">Clique no botão acima para informar as notas do aluno.</div>
+
+    <script>
+        function notas(){
+            let result = document.querySelector('div.resultado')
+            let nome = window.prompt('Qual o nome do aluno?')
+            let n1 = window.prompt(`Primeira nota de ${nome}`)
+            let n2 = window.prompt(`Segunda nota de ${nome}`)
+
+            let nota1 = Number(n1.replace(',','.'))
+            let nota2 = Number(n2.replace(',','.'))
+
+            let media = (nota1 + nota2)/2
+
+            result.innerHTML = `<h2>Analisando a situação de ${nome}</h2>`
+            result.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a média é ${media}</p>`
+
+            if(media >= 6){
+                result.innerHTML += '<p>Com média acima de 6.0, o aluno está <span style="background:greenyellow; color:green">APROVADO</span></p>'
+            }else if(media >= 3){
+                result.innerHTML += '<p>Com média entre 3.0 e 6.0, o aluno está em <span style="background:yellow; color:orange">RECUPERAÇÃO</span></p>'
+            }else{
+                result.innerHTML += 'Com média abaixo de 3.0, o aluno está <span style="background: red; color: darkred">REPROVADO</span>'
+            }
+        }
+
+        </script>
+</body>
+</html>

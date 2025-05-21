@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="converter()">Converter</button>
+    <div class="resultado"> clique no botão acima para iniciar</div>
+
+    <script>
+        function converter(){
+            let result = document.querySelector('div.resultado')
+            let temperatura = window.prompt('Digite uma temperatura em ºC (Celsius)')
+
+            let t = Number(temperatura.replace(',','.'))
+            result.innerHTML = `<h2>A temperatura de ${(t).toLocaleString('pt-br')}ºC, corresponde a...</h2>`
+            result.innerHTML += `<p>${((t*9/5)+32).toLocaleString('pt-br')}ºF (Fahreinheit)</p>`
+            result.innerHTML += `<p>${(t + 273.15).toLocaleString('pt-br')}ºK (Kelvin)</p>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+</head>
+<body>
+    <h1>Preço Mudou</h1>
+    <button onclick="verificar()">Verificar</button>
+    <div class="resultado">Clique no botão acima para analisar a mudança de preço.</div>
+
+    <script>
+        function verificar(){
+            let result = document.querySelector('div.resultado')
+            let a = window.prompt('Qual era o preço anterior do produto?')
+            let b = window.prompt('Qual é o preço atual do produto?')
+
+            let pA = Number(a.replace(',','.'))
+            let pN = Number(b.replace(',','.'))
+
+            let precoAntigo = pA.toLocaleString('pt-br', {style:"currency",currency: 'BRL'})
+            let precoNovo = pN.toLocaleString('pt-br', {style:"currency",currency: 'BRL'})
+
+            result.innerHTML = '<h2>Analizando os valores informados</h2>'
+            result.innerHTML += `O produto custava ${precoAntigo} e agora custa ${precoNovo}`
+            
+            let diferenca
+            let taxa 
+
+            if(pA > pN){
+                diferenca = pA - pN
+                taxa = (diferenca/pA)*100
+
+                let d = diferenca.toLocaleString('pt-br', {style:"currency",currency: 'BRL'})
+
+                result.innerHTML += '<p>Hoje o produto está mais barato.</p>'
+                result.innerHTML += `<p>O preço caiu ${d} em relação ao preço anterior.</p>`
+                result.innerHTML += `<p>Uma variação de ${taxa}% pra baixo</p>`
+            }else{
+                diferenca = pN - pA
+                taxa = (diferenca/pN)*100
+
+                let d = diferenca.toLocaleString('pt-br', {style:"currency",currency: 'BRL'})
+
+                result.innerHTML += '<p>Hoje o produto está mais caro</p>'
+                result.innerHTML += `<p>O preço subiu ${d} em relação ao preço anterior.</p>`
+                result.innerHTML += `<p>Uma variação de ${taxa}% para cima</p>`
+            }
+        }
+    </script>
+</body>
+</html>

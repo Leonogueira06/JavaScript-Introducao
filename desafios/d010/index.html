@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <button onclick="reajustar()">Reajustar Salário</button>
+    <div class="resultado">Clique no Botão acima para iniciar.</div>
+
+    <script>
+        function reajustar(){
+            let result = document.querySelector('div.resultado')
+            let nome = window.prompt('Qual é o nome do funcionário?')
+            let salario = window.prompt(`Qual é o salário de ${nome}`)
+            let aumento = window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`)
+
+            let s = Number(salario.replace(',','.'))
+            let a = Number(aumento.replace(',','.'))
+
+            let quantoAumentar = (s*a)/100
+            let aumentar = s + quantoAumentar
+
+            let salarial = s.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+            let novoSalario = aumentar.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+            let aumentarSalario = quantoAumentar.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+
+            result.innerHTML = `<h2>${nome} Recebeu um aumento salarial!</h2>`
+            result.innerHTML += `<p>O salário atual era ${salarial}.</p>`
+            result.innerHTML += `<p>Com um aumento de ${aumento}%, o salário vai aumentar ${aumentarSalario} no próximo mês.</p>`
+            result.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar ${novoSalario}.</p>`
+        }  
+    </script>
+</body>
+</html>

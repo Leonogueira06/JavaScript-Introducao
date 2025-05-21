@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="converter()">Converter</button>
+    <div class="resultado">
+        Clique no botão acima para iniciar.
+    </div>
+
+    <script>
+        function converter(){
+            let result = document.querySelector('div.resultado')
+            let distancia = window.prompt('Digite uma distância em metros(m)')
+
+            let d = Number(distancia.replace('.',','))
+
+        result.innerHTML = `<h2>A distância de ${d.toLocaleString('pt-BR')} metros corresponde a:</h2>`
+        result.innerHTML += `<p>${(d / 1000).toLocaleString('pt-BR',{minimumFractionDigits: 3})} quilômetros(KM)</p>`
+        result.innerHTML += `<p>${(d / 100).toLocaleString('pt-BR',{minimumFractionDigits: 3})} hectômetros(Hm)</p>`
+        result.innerHTML += `<p>${(d / 10).toLocaleString('pt-BR',{ minimumFractionDigits: 3})} decâmetros(Dam)</p>`
+        result.innerHTML += `<p>${(d * 10).toLocaleString('pt-BR',{minimumFractionDigits: 3})} decímetros(dm)</p>`
+        result.innerHTML += `<p>${(d * 100).toLocaleString('pt-BR',{minimumFractionDigits: 3})} centímetros(cm)</p>`
+        result.innerHTML += `<p>${(d * 1000).toLocaleString('pt-BR',{minimumFractionDigits: 3})} milímetros(mm)</p>`
+        }
+    </script>
+</body>
+</html>
